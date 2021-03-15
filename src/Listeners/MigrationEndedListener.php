@@ -11,6 +11,12 @@ class MigrationEndedListener
 
     public function handle(MigrationEnded $event)
     {
-        RequirePrimaryKeyState::restore($event->migration->getConnection());
+        $connection = $event->migration->getConnection();
+
+        if (RequirePrimaryKeyState::connectionRequiresPrimaryKey($connection) === false) {
+            return;
+        }
+
+        RequirePrimaryKeyState::restore($connection);
     }
 }

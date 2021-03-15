@@ -18,6 +18,10 @@ class MigrationStartedListener
 
         $connection = $migration->getConnection();
 
+        if (RequirePrimaryKeyState::connectionRequiresPrimaryKey($connection) === false) {
+            return;
+        }
+
         $skipPrimaryKeyChecks = $migration->skipPrimaryKeyChecks ?? false;
 
         if ($skipPrimaryKeyChecks === false) {
