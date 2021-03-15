@@ -44,4 +44,11 @@ class RequirePrimaryKeyState
     {
         static::set(static::$originals[$connection], $connection);
     }
+
+    public static function connectionRequiresPrimaryKey(?string $connection = null): bool
+    {
+        $connectionKey = $connection === null ? config('database.default') : $connection;
+
+        return config("database.connections.{$connectionKey}.require_primary_key", false);
+    }
 }
