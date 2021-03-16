@@ -2,8 +2,8 @@
 
 namespace ChrisHarvey\LaravelSqlRequirePrimaryKey;
 
-use App\Listeners\MigrationEndedListener;
-use App\Listeners\MigrationStartedListener;
+use ChrisHarvey\LaravelSqlRequirePrimaryKey\Listeners\MigrationEndedListener;
+use ChrisHarvey\LaravelSqlRequirePrimaryKey\Listeners\MigrationStartedListener;
 use Illuminate\Database\Events\MigrationEnded;
 use Illuminate\Database\Events\MigrationStarted;
 use Illuminate\Support\Facades\Event;
