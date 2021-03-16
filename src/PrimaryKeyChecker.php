@@ -7,6 +7,7 @@ use ChrisHarvey\LaravelSqlRequirePrimaryKey\Exceptions\PrimaryKeyRequiredExcepti
 class PrimaryKeyChecker
 {
     protected array $queries;
+    protected array $tables = [];
 
     public function __construct(array $queries)
     {
